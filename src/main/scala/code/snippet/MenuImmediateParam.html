@@ -1,0 +1,28 @@
+package code 
+package snippet 
+
+import scala.xml.{NodeSeq, Text}
+import net.liftweb.util._
+import net.liftweb.common._
+import net.liftweb.sitemap._
+import code.lib._
+import Helpers._
+import net.liftweb._
+import net.liftweb.http._
+
+
+case class Param(name: String)
+
+object MenuImmediateParam {
+
+//def parse(b: String) = {if (b == "index") Empty else Full(Param(b))}
+def parse(b: String) = Full(Param(b))
+def encode(c: Param) = c.name;
+
+def menus: List[Menu] = List(m)
+
+def m = Menu.param[Param]("Immediate", "Immediate",  parse _, encode _) / *   >> Loc.Template(() => TemplateFinder.findAnyTemplate(List("immediate")) openOr <div>Parameter tested</div>)
+
+}
+
+
